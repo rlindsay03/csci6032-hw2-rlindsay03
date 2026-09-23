@@ -18,6 +18,19 @@ It prints JSON containing the number of `lines`, `words`, and `characters`:
 {"lines": 5, "words": 14, "characters": 66}
 ```
 
+To include the two most frequent words, use the optional `--top N` argument:
+
+```text
+python src/text_stats.py sample.txt --top 2
+```
+
+The output includes a `top` array of word/count objects. Words are compared
+case-insensitively and ties are ordered alphabetically:
+
+```json
+{"lines": 5, "words": 14, "characters": 66, "top": [{"word": "67", "count": 1}, {"word": "beat", "count": 1}]}
+```
+
 Run the tests with Python's built-in `unittest` framework:
 
 ```text
